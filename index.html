@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care-for-Rent · Community Mutual Elderly Care Risk Prevention System | DUO Studio</title>
+    <meta name="description" content="Care-for-Rent: Pilot Project of Community Mutual Elderly Care Risk Prevention System. Offset housing rent with daily youth care, build a proactive intervention network for home-based elderly care risks in an asset-light approach.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1A2438;
+            --green: #A8CC87;
+            --white: #FFFFFF;
+            --light-gray: #F5F7FA;
+            --dark-gray: #2A2A2A;
+            --mid-gray: #666666;
+            --nav-height: 72px;
+            --max-width: 1200px;
+            --green-tint: #EEF4E7;
+            --navy-light: #25324D;
+            --green-deep: #96B878;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            letter-spacing: 0.01em;
+        }
+
+        /* ============ TYPOGRAPHY ============ */
+        h1,
+        h2,
+        h3,
+        .heading,
+        .stat-number,
+        .nav-link {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: 0.03em;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            letter-spacing: 0.04em;
+        }
+        h2 {
+            font-size: 1.9rem;
+            line-height: 1.25;
+            letter-spacing: 0.035em;
+        }
+        h3 {
+            font-size: 1.25rem;
+            line-height: 1.35;
+            letter-spacing: 0.03em;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 0.6rem;
+            font-size: 2rem;
+            letter-spacing: 0.04em;
+            color: var(--navy);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--mid-gray);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        .stat-number {
+            font-family: 'JetBrains Mono', 'Outfit', monospace;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            line-height: 1.15;
+        }
+        .stat-number-lg {
+            font-family: 'JetBrains Mono', 'Outfit', monospace;
+            font-weight: 700;
+            font-size: 2.8rem;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+        .card-heading {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--navy);
+            letter-spacing: 0.025em;
+        }
+        .body-text {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 400;
+            color: var(--dark-gray);
+            line-height: 1.65;
+            font-size: 0.98rem;
+        }
+        .aux-text {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 400;
+            color: var(--mid-gray);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        /* ============ NAVIGATION ============ */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            border-bottom: 1px solid #E8ECF1;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            transition: border-color 0.2s ease;
+        }
+        .nav-inner {
+            max-width: var(--max-width);
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .nav-logo-link {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 4px 0;
+            border-radius: 6px;
+            transition: opacity 0.2s ease;
+        }
+        .nav-logo-link:hover {
+            opacity: 0.85;
+        }
+        .nav-logo-svg {
+            height: calc(var(--nav-height) * 0.58);
+            width: auto;
+            display: block;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            list-style: none;
+            flex-wrap: nowrap;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            padding: 0.35rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+            cursor: pointer;
+        }
+        .nav-link:hover {
+            color: var(--navy);
+            border-bottom-color: var(--green);
+        }
+        .nav-cta {
+            flex-shrink: 0;
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--green);
+            color: var(--navy);
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            border-radius: 999px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+            text-align: center;
+        }
+        .nav-cta:hover {
+            background-color: var(--green-deep);
+        }
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            flex-shrink: 0;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background-color: var(--navy);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+        }
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============ MAIN CONTAINER ============ */
+        .main-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .section {
+            padding: 5rem 0;
+        }
+        .section-divider-bg {
+            background-color: var(--light-gray);
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero-section {
+            padding: 3.5rem 0 0 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 420px;
+        }
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+        .hero-title {
+            font-size: 2.7rem;
+            line-height: 1.18;
+            letter-spacing: 0.04em;
+            color: var(--navy);
+        }
+        .hero-subtitle {
+            font-size: 1.08rem;
+            color: var(--mid-gray);
+            line-height: 1.6;
+            max-width: 480px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            border-radius: 999px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .btn-primary-fill {
+            background-color: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+        .btn-primary-fill:hover {
+            background-color: var(--navy-light);
+            border-color: var(--navy-light);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+        .btn-outline:hover {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+        .btn-green-fill {
+            background-color: var(--green);
+            color: var(--navy);
+            border-color: var(--green);
+        }
+        .btn-green-fill:hover {
+            background-color: var(--green-deep);
+            border-color: var(--green-deep);
+        }
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-illustration {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+        }
+
+        /* ============ DATA BAR ============ */
+        .data-bar {
+            background-color: var(--light-gray);
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        .data-bar-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .data-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: background-color 0.2s ease;
+            cursor: default;
+        }
+        .data-card:hover {
+            background-color: var(--green-tint);
+        }
+        .data-card .stat-number {
+            font-size: 1.7rem;
+        }
+        .data-card .data-label {
+            font-size: 0.85rem;
+            color: var(--mid-gray);
+            line-height: 1.4;
+        }
+
+        /* ============ CARDS GRID ============ */
+        .cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .cards-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            transition: background-color 0.2s ease;
+            cursor: default;
+            border: 1px solid #EAEEF3;
+        }
+        .card:hover {
+            background-color: var(--green-tint);
+            border-color: #D5E2C8;
+        }
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.3rem;
+            flex-shrink: 0;
+        }
+        .card-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        /* ============ VALUE CARDS WITH SPLIT STRIP ============ */
+        .value-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.2s ease;
+            cursor: default;
+            border: 1px solid #EAEEF3;
+        }
+        .value-card:hover {
+            background-color: var(--green-tint);
+            border-color: #D5E2C8;
+        }
+        .value-card-strip {
+            height: 8px;
+            display: flex;
+            flex-shrink: 0;
+        }
+        .value-card-strip .strip-left {
+            flex: 1;
+            background-color: var(--navy);
+        }
+        .value-card-strip .strip-right {
+            flex: 1;
+            background-color: var(--green);
+        }
+        .value-card-body {
+            padding: 1.8rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .value-card-body h3 {
+            margin-bottom: 0.2rem;
+        }
+        .value-card-body ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .value-card-body ul li {
+            padding-left: 1.3rem;
+            position: relative;
+            font-size: 0.93rem;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+        .value-card-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--green);
+        }
+
+        /* ============ TIMELINE ============ */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--navy);
+            border-radius: 2px;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .timeline-stages {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .timeline-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.7rem;
+        }
+        .timeline-node {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: var(--green);
+            flex-shrink: 0;
+            border: 3px solid var(--navy);
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-stage-content {
+            background-color: var(--white);
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #EAEEF3;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+        .timeline-stage-content:hover {
+            background-color: var(--green-tint);
+        }
+        .timeline-stage-content h4 {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            letter-spacing: 0.025em;
+            margin-bottom: 0.3rem;
+        }
+        .timeline-stage-content .stage-meta {
+            font-size: 0.8rem;
+            color: var(--green-deep);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.4rem;
+        }
+        .timeline-stage-content p {
+            font-size: 0.83rem;
+            color: var(--mid-gray);
+            line-height: 1.45;
+        }
+
+        /* ============ FLOW CHART ============ */
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .flow-node {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            text-align: center;
+            border: 2px solid var(--navy);
+            min-width: 170px;
+            transition: background-color 0.2s ease;
+            cursor: default;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-node:hover {
+            background-color: var(--green-tint);
+        }
+        .flow-node.core {
+            border-color: var(--green);
+            border-width: 3px;
+            background-color: #FAFDF7;
+            min-width: 200px;
+        }
+        .flow-node h4 {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+        .flow-node p {
+            font-size: 0.82rem;
+            color: var(--mid-gray);
+            line-height: 1.4;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        .flow-arrow svg {
+            width: 40px;
+            height: 20px;
+        }
+        .flow-connector-label {
+            font-size: 0.75rem;
+            color: var(--navy);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-align: center;
+            position: absolute;
+        }
+
+        /* ============ CAPABILITIES SECTION ============ */
+        .capability-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .capability-item {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 1px solid #EAEEF3;
+            transition: background-color 0.2s ease;
+            cursor: default;
+        }
+        .capability-item:hover {
+            background-color: var(--green-tint);
+            border-color: #D5E2C8;
+        }
+        .capability-illustration {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+        }
+        .capability-text h4 {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--navy);
+            letter-spacing: 0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .capability-text ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .capability-text ul li {
+            padding-left: 1.1rem;
+            position: relative;
+            font-size: 0.88rem;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+        .capability-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--green);
+        }
+
+        /* ============ OUTCOMES DASHBOARD ============ */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .outcome-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid #EAEEF3;
+            transition: background-color 0.2s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .outcome-card:hover {
+            background-color: var(--green-tint);
+            border-color: #D5E2C8;
+        }
+        .outcome-card .stat-number-lg {
+            margin-bottom: 0.2rem;
+        }
+        .outcome-card .outcome-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--navy);
+            letter-spacing: 0.025em;
+        }
+        .progress-bar-wrap {
+            width: 100%;
+            height: 10px;
+            background-color: #E8ECF1;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0.3rem 0;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--green);
+            border-radius: 5px;
+            transition: width 0.6s ease;
+        }
+
+        /* ============ CTA BANNER ============ */
+        .cta-banner {
+            background-color: var(--navy);
+            border-radius: 0;
+            padding: 3.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .cta-banner-text h2 {
+            color: var(--white);
+            font-size: 1.8rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+        .cta-banner-text p {
+            color: #C8D6E5;
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 550px;
+        }
+        .cta-banner .btn-green-fill {
+            flex-shrink: 0;
+            padding: 0.85rem 2.2rem;
+            font-size: 1rem;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background-color: var(--light-gray);
+            padding: 2.5rem 2rem;
+        }
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-logo-svg {
+            height: 36px;
+            width: auto;
+        }
+        .footer-project-name {
+            font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            letter-spacing: 0.025em;
+            line-height: 1.3;
+        }
+        .footer-right {
+            text-align: right;
+        }
+        .footer-right p {
+            font-size: 0.8rem;
+            color: var(--mid-gray);
+            line-height: 1.5;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1100px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+            }
+            .nav-cta {
+                font-size: 0.8rem;
+                padding: 0.5rem 1.1rem;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-right {
+                order: -1;
+            }
+            .hero-illustration {
+                max-width: 300px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .data-bar-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cards-grid-3,
+            .cards-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-stages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-line {
+                display: none;
+            }
+            .capability-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .outcomes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .flow-chart {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.2rem 2rem;
+                border-bottom: 1px solid #E8ECF1;
+                gap: 0.8rem;
+                z-index: 999;
+            }
+            .nav-menu.open {
+                display: flex;
+            }
+            .nav-hamburger {
+                display: block;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .nav-menu .nav-cta-mobile {
+                display: inline-block;
+                margin-top: 0.4rem;
+            }
+            .nav-bar .nav-cta-desktop {
+                display: none;
+            }
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .data-bar-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .data-card {
+                padding: 1.2rem 1rem;
+            }
+            .data-card .stat-number {
+                font-size: 1.3rem;
+            }
+            .cards-grid-3,
+            .cards-grid-4 {
+                grid-template-columns: 1fr;
+            }
+            .timeline-stages {
+                grid-template-columns: 1fr;
+            }
+            .capability-row {
+                grid-template-columns: 1fr;
+            }
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-right {
+                text-align: center;
+            }
+            .value-card-body ul li {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-bar {
+                padding: 0 1rem;
+            }
+            .main-container {
+                padding: 0 1rem;
+            }
+            .section {
+                padding: 3rem 0;
+            }
+            .hero-section {
+                padding: 2rem 0 0 0;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .data-bar-inner {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .stat-number-lg {
+                font-size: 2rem;
+            }
+            .flow-node {
+                min-width: auto;
+                width: 100%;
+            }
+            .flow-node.core {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        /* ============ MOBILE NAV MENU TOGGLE ============ */
+        .nav-menu .nav-cta-mobile {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .nav-menu .nav-cta-mobile {
+                display: inline-block;
+                padding: 0.55rem 1.3rem;
+                background-color: var(--green);
+                color: var(--navy);
+                font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+                font-weight: 600;
+                font-size: 0.85rem;
+                letter-spacing: 0.03em;
+                border-radius: 999px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                border: none;
+                transition: background-color 0.2s ease;
+            }
+            .nav-menu .nav-cta-mobile:hover {
+                background-color: var(--green-deep);
+            }
+        }
+
+        /* ============ SMOOTH SCROLL OFFSET FOR STICKY NAV ============ */
+        section[id] {
+            scroll-margin-top: calc(var(--nav-height) + 10px);
+        }
+
+        /* ============ FOCUS VISIBLE ============ */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== STICKY NAVIGATION ==================== -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <!-- DUO Studio Logo – click to return to top -->
+            <a href="#top" class="nav-logo-link" title="DUO Studio – Return to top" aria-label="DUO Studio logo, click to scroll to top">
+                <svg class="nav-logo-svg" viewBox="0 0 40 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Left half (Deep Navy) -->
+                    <g clip-path="url(#logo-clip-left)">
+                        <path d="M4,2 L4,50 A24,24 0 0,1 4,2 Z" fill="#1A2438"/>
+                    </g>
+                    <!-- Right half (Light Bean Green) -->
+                    <g clip-path="url(#logo-clip-right)">
+                        <path d="M4,2 L4,50 A24,24 0 0,1 4,2 Z" fill="#A8CC87"/>
+                    </g>
+                    <!-- Negative white circular connection -->
+                    <circle cx="16" cy="26" r="6.5" fill="#FFFFFF"/>
+                    <!-- Clip paths -->
+                    <defs>
+                        <clipPath id="logo-clip-left">
+                            <rect x="0" y="0" width="16" height="52"/>
+                        </clipPath>
+                        <clipPath id="logo-clip-right">
+                            <rect x="16" y="0" width="24" height="52"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+
+            <!-- Desktop nav links -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#project-background" class="nav-link">Project Background</a></li>
+                <li><a href="#core-solution" class="nav-link">Core Solution</a></li>
+                <li><a href="#capabilities" class="nav-link">Professional Capabilities</a></li>
+                <li><a href="#project-value" class="nav-link">Project Value</a></li>
+                <li><a href="#implementation-path" class="nav-link">Implementation Path</a></li>
+                <li><a href="#expected-outcomes" class="nav-link">Expected Outcomes</a></li>
+                <li><a href="#contact" class="nav-cta-mobile">Apply for Pilot Cooperation</a></li>
+            </ul>
+
+            <!-- Desktop CTA button -->
+            <a href="#contact" class="nav-cta nav-cta-desktop">Apply for Pilot Cooperation</a>
+
+            <!-- Hamburger toggle for mobile -->
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="top">
+
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero-section">
+            <div class="main-container">
+                <div class="hero-grid">
+                    <!-- Left copy -->
+                    <div class="hero-left">
+                        <h1 class="hero-title">Care-for-Rent · Community Mutual Elderly Care Risk Prevention System</h1>
+                        <p class="hero-subtitle">Offset housing rent with daily youth care, build a proactive intervention network for home-based elderly care risks in an asset-light approach.</p>
+                        <div class="hero-buttons">
+                            <a href="#core-solution" class="btn btn-primary-fill">Learn Full Solution</a>
+                            <a href="#expected-outcomes" class="btn btn-outline">View Pilot Outcomes</a>
+                        </div>
+                    </div>
+                    <!-- Right abstract illustration -->
+                    <div class="hero-right">
+                        <svg class="hero-illustration" viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Large split circle echoing DUO logo -->
+                            <g clip-path="url(#hero-clip-left)">
+                                <circle cx="170" cy="160" r="120" fill="#1A2438"/>
+                            </g>
+                            <g clip-path="url(#hero-clip-right)">
+                                <circle cx="170" cy="160" r="120" fill="#A8CC87"/>
+                            </g>
+                            <!-- White connection circle -->
+                            <circle cx="170" cy="160" r="28" fill="#FFFFFF"/>
+                            <!-- Orbiting smaller shapes -->
+                            <circle cx="310" cy="90" r="32" fill="#1A2438" opacity="0.85"/>
+                            <circle cx="310" cy="90" r="14" fill="#A8CC87"/>
+                            <rect x="60" y="250" width="80" height="80" rx="28" fill="#A8CC87"/>
+                            <rect x="76" y="266" width="48" height="48" rx="18" fill="#1A2438"/>
+                            <circle cx="330" cy="250" r="22" fill="#1A2438"/>
+                            <circle cx="330" cy="250" r="10" fill="#A8CC87"/>
+                            <!-- Thin connecting arcs -->
+                            <path d="M198,160 Q260,80 290,90" stroke="#1A2438" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M142,160 Q100,240 100,270" stroke="#A8CC87" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M198,200 Q260,280 308,250" stroke="#1A2438" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="8,4"/>
+                            <defs>
+                                <clipPath id="hero-clip-left">
+                                    <rect x="0" y="0" width="170" height="340"/>
+                                </clipPath>
+                                <clipPath id="hero-clip-right">
+                                    <rect x="170" y="0" width="230" height="340"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Data bar -->
+            <div class="data-bar">
+                <div class="data-bar-inner">
+                    <div class="data-card">
+                        <span class="stat-number">35%+</span>
+                        <span class="data-label">reduction in annual per-senior care cost vs. professional caregiver model</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="stat-number">25%+</span>
+                        <span class="data-label">reduction in home accident claim rate for insurance institutions</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="stat-number">100+</span>
+                        <span class="data-label">solitary elderly households covered per pilot community</span>
+                    </div>
+                    <div class="data-card">
+                        <span class="stat-number">50%</span>
+                        <span class="data-label">maximum rent reduction for youth tenants</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROJECT BACKGROUND ========== -->
+        <section id="project-background" class="section">
+            <div class="main-container">
+                <h2 class="section-title">Three Structural Dilemmas Under Deep Aging</h2>
+                <p class="section-subtitle">The Care-for-Rent system addresses core pain points across government, insurance, and social sectors simultaneously.</p>
+                <div class="cards-grid-3">
+                    <!-- Government Sector -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="8" width="20" height="15" rx="3" stroke="#A8CC87" stroke-width="2" fill="none"/>
+                                <path d="M8,8 V5 A5,5 0 0,1 18,5 V8" stroke="#A8CC87" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <line x1="13" y1="13" x2="13" y2="18" stroke="#A8CC87" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="13" cy="20" r="1" fill="#A8CC87"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Government Sector</h3>
+                        <p class="body-text">Aging population pressure mounts while fiscal resources are limited. Traditional institutional care is costly and slow to scale. Home-based care lacks systematic risk monitoring and proactive intervention mechanisms.</p>
+                    </div>
+                    <!-- Insurance Sector -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="13" cy="13" r="10" stroke="#A8CC87" stroke-width="2" fill="none"/>
+                                <path d="M8,13 L11,16 L18,9" stroke="#A8CC87" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Insurance Sector</h3>
+                        <p class="body-text">Home accident claims from solitary elderly remain persistently high. Lack of daily monitoring data prevents accurate actuarial modeling and risk-based pricing for home-based care insurance products.</p>
+                    </div>
+                    <!-- Social Sector -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="4" stroke="#A8CC87" stroke-width="2" fill="none"/>
+                                <circle cx="17" cy="9" r="4" stroke="#A8CC87" stroke-width="2" fill="none"/>
+                                <path d="M3,19 Q9,15 13,17 Q17,19 23,15" stroke="#A8CC87" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Social Sector</h3>
+                        <p class="body-text">Youth face urban housing affordability crises while elderly isolation deepens. Existing volunteer-based care models lack sustainability, quality assurance, and scalable incentive structures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CORE SOLUTION ========== -->
+        <section id="core-solution" class="section section-divider-bg">
+            <div class="main-container">
+                <h2 class="section-title">Standardized Care-for-Rent Mutual Assistance Mechanism</h2>
+                <p class="section-subtitle">This system is a standardized service transaction and supervision mechanism for community mutual elderly care. Eligible youth tenants offset rent with a fixed monthly duration of non-medical daily care services. Through mechanism design and integration of urban stock resources, it can replace 30%–40% of basic caregiver functions and realize proactive intervention of home-based elderly care risks.</p>
+
+                <!-- Flow chart -->
+                <div class="flow-chart">
+                    <div class="flow-node">
+                        <h4>Youth Tenants</h4>
+                        <p>Provide daily care & emergency response</p>
+                        <p style="font-weight:600;color:var(--navy);margin-top:0.3rem;">→ Offset Housing Rent</p>
+                    </div>
+                    <div class="flow-arrow">
+                        <svg viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,10 L30,10" stroke="#1A2438" stroke-width="2.5" stroke-linecap="round"/>
+                            <polygon points="30,5 38,10 30,15" fill="#1A2438"/>
+                        </svg>
+                    </div>
+                    <div class="flow-node core">
+                        <h4>System Platform</h4>
+                        <p>Matching · Supervision</p>
+                        <p>Safety · Evaluation</p>
+                    </div>
+                    <div class="flow-arrow">
+                        <svg viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,10 L30,10" stroke="#A8CC87" stroke-width="2.5" stroke-linecap="round"/>
+                            <polygon points="30,5 38,10 30,15" fill="#A8CC87"/>
+                        </svg>
+                    </div>
+                    <div class="flow-node">
+                        <h4>Elderly Residents</h4>
+                        <p>Receive daily visits & risk intervention</p>
+                        <p style="font-weight:600;color:var(--navy);margin-top:0.3rem;">→ Age in Place</p>
+                    </div>
+                </div>
+
+                <!-- Four core module cards -->
+                <div class="cards-grid-4" style="margin-top:2.5rem;">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="18" height="18" rx="5" stroke="#1A2438" stroke-width="2" fill="none"/>
+                                <circle cx="10" cy="10" r="2.5" fill="#A8CC87"/>
+                                <circle cx="16" cy="16" r="2.5" fill="#A8CC87"/>
+                                <line x1="11.5" y1="11.5" x2="14.5" y2="14.5" stroke="#1A2438" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Intelligent Matching Rules</h3>
+                        <p class="body-text" style="font-size:0.88rem;">Multi-dimensional compatibility scoring for youth-elderly pairing based on proximity, schedule, and care needs.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="13" cy="13" r="10" stroke="#1A2438" stroke-width="2" fill="none"/>
+                                <path d="M9,13 L12,15.5 L17,10" stroke="#A8CC87" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Full-chain Trust Endorsement</h3>
+                        <p class="body-text" style="font-size:0.88rem;">Background verification, community endorsement, and continuous reputation scoring ensure trust across all participants.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="3" width="14" height="20" rx="4" stroke="#1A2438" stroke-width="2" fill="none"/>
+                                <line x1="10" y1="10" x2="16" y2="10" stroke="#A8CC87" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="10" y1="14" x2="16" y2="14" stroke="#A8CC87" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="10" y1="18" x2="13" y2="18" stroke="#A8CC87" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Tiered Safety Guarantee</h3>
+                        <p class="body-text" style="font-size:0.88rem;">Multi-layer emergency response protocols with real-time escalation from youth caregiver to community hub to emergency services.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="15" width="8" height="8" rx="2" fill="#A8CC87"/>
+                                <rect x="15" y="8" width="8" height="15" rx="2" fill="#1A2438"/>
+                                <rect x="15" y="3" width="8" height="4" rx="2" fill="#A8CC87"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-heading">Quantitative Effect Evaluation</h3>
+                        <p class="body-text" style="font-size:0.88rem;">Data-driven outcome measurement across cost reduction, risk prevention, satisfaction, and community resilience indicators.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CROSS-DISCIPLINARY CAPABILITIES ========== -->
+        <section id="capabilities" class="section">
+            <div class="main-container">
+                <h2 class="section-title">Full-chain Cross-disciplinary Design Delivery System</h2>
+                <p class="section-subtitle">DUO Studio integrates art, technology, product design, and environmental design to deliver end-to-end implementation capabilities.</p>
+                <div class="capability-row">
+                    <!-- Capability 1 -->
+                    <div class="capability-item">
+                        <div class="capability-illustration">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="10" width="52" height="38" rx="8" stroke="#1A2438" stroke-width="2.5" fill="none"/>
+                                <rect x="14" y="18" width="36" height="22" rx="4" fill="#A8CC87"/>
+                                <circle cx="32" cy="36" r="5" fill="#1A2438"/>
+                                <line x1="32" y1="14" x2="32" y2="10" stroke="#1A2438" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Art & Technology · Digital System Platform</h4>
+                            <ul>
+                                <li>Intelligent matching system</li>
+                                <li>Full-process service management</li>
+                                <li>Emergency linkage response</li>
+                                <li>Regulatory data visualization dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Capability 2 -->
+                    <div class="capability-item">
+                        <div class="capability-illustration">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="22" cy="22" r="14" stroke="#A8CC87" stroke-width="2.5" fill="none"/>
+                                <circle cx="42" cy="22" r="14" stroke="#1A2438" stroke-width="2.5" fill="none"/>
+                                <circle cx="32" cy="44" r="12" stroke="#A8CC87" stroke-width="2.5" fill="none"/>
+                                <line x1="34" y1="18" x2="40" y2="18" stroke="#1A2438" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="20" y1="28" x2="26" y2="38" stroke="#A8CC87" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Product & Service Design · Mechanism & Evaluation System</h4>
+                            <ul>
+                                <li>Multi-role user research</li>
+                                <li>Matching and trust mechanism</li>
+                                <li>Safety risk prevention and control</li>
+                                <li>Service effect evaluation system</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Capability 3 -->
+                    <div class="capability-item">
+                        <div class="capability-illustration">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="28" width="48" height="28" rx="6" stroke="#1A2438" stroke-width="2.5" fill="none"/>
+                                <path d="M32,8 L32,28" stroke="#A8CC87" stroke-width="2.5" stroke-linecap="round"/>
+                                <rect x="20" y="14" width="24" height="14" rx="6" fill="#A8CC87"/>
+                                <circle cx="32" cy="42" r="4" fill="#1A2438"/>
+                            </svg>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Environmental Design · Physical Space Adaptation</h4>
+                            <ul>
+                                <li>Community service hub design</li>
+                                <li>Stock housing space adaptation</li>
+                                <li>Home aging-friendly micro-renovation</li>
+                                <li>Community service route planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== WIN-WIN PROJECT VALUE ========== -->
+        <section id="project-value" class="section section-divider-bg">
+            <div class="main-container">
+                <h2 class="section-title">Win-win Value of Livelihood Innovation</h2>
+                <p class="section-subtitle">Each stakeholder group realizes measurable benefits through the Care-for-Rent mutual assistance system.</p>
+                <div class="cards-grid-3">
+                    <!-- Municipal Government -->
+                    <div class="value-card">
+                        <div class="value-card-strip">
+                            <span class="strip-left"></span>
+                            <span class="strip-right"></span>
+                        </div>
+                        <div class="value-card-body">
+                            <h3>Municipal Government</h3>
+                            <ul>
+                                <li>Reduce fiscal pressure on elderly care with asset-light model</li>
+                                <li>Improve home-based care coverage and risk monitoring</li>
+                                <li>Activate idle community housing stock resources</li>
+                                <li>Enhance grassroots governance and community resilience</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Insurance Institutions -->
+                    <div class="value-card">
+                        <div class="value-card-strip">
+                            <span class="strip-left"></span>
+                            <span class="strip-right"></span>
+                        </div>
+                        <div class="value-card-body">
+                            <h3>Insurance Institutions</h3>
+                            <ul>
+                                <li>Reduce home accident claim rates through daily intervention</li>
+                                <li>Access continuous monitoring data for actuarial modeling</li>
+                                <li>Develop new home-based care insurance product lines</li>
+                                <li>Build community-anchored distribution and service channels</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Community & Residents -->
+                    <div class="value-card">
+                        <div class="value-card-strip">
+                            <span class="strip-left"></span>
+                            <span class="strip-right"></span>
+                        </div>
+                        <div class="value-card-body">
+                            <h3>Community & Residents</h3>
+                            <ul>
+                                <li>Elderly age in place with dignity and regular companionship</li>
+                                <li>Youth access affordable housing with meaningful purpose</li>
+                                <li>Strengthen intergenerational trust and community bonds</li>
+                                <li>Create sustainable local care networks beyond pilot phase</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== IMPLEMENTATION PATH ========== -->
+        <section id="implementation-path" class="section">
+            <div class="main-container">
+                <h2 class="section-title">8-Month Standardized Pilot Implementation Cycle</h2>
+                <p class="section-subtitle">A structured four-stage delivery process from research through scaled implementation planning.</p>
+                <div class="timeline">
+                    <div class="timeline-line" aria-hidden="true"></div>
+                    <div class="timeline-stages">
+                        <!-- Stage 1 -->
+                        <div class="timeline-stage">
+                            <div class="timeline-node" aria-hidden="true"></div>
+                            <div class="timeline-stage-content">
+                                <span class="stage-meta">Month 1–2</span>
+                                <h4>Research & Mechanism Design</h4>
+                                <p>User research, service blueprint, core mechanism finalization</p>
+                            </div>
+                        </div>
+                        <!-- Stage 2 -->
+                        <div class="timeline-stage">
+                            <div class="timeline-node" aria-hidden="true"></div>
+                            <div class="timeline-stage-content">
+                                <span class="stage-meta">Month 3–5</span>
+                                <h4>System Development & Space Prototype</h4>
+                                <p>Digital platform development, community & home prototype delivery, operation system output</p>
+                            </div>
+                        </div>
+                        <!-- Stage 3 -->
+                        <div class="timeline-stage">
+                            <div class="timeline-node" aria-hidden="true"></div>
+                            <div class="timeline-stage-content">
+                                <span class="stage-meta">Month 6–7</span>
+                                <h4>Small-scale Pilot Operation</h4>
+                                <p>Community pilot launch, linkage testing, data iteration & optimization</p>
+                            </div>
+                        </div>
+                        <!-- Stage 4 -->
+                        <div class="timeline-stage">
+                            <div class="timeline-node" aria-hidden="true"></div>
+                            <div class="timeline-stage-content">
+                                <span class="stage-meta">Month 8</span>
+                                <h4>Standardized Output & Delivery</h4>
+                                <p>Outcome report, standardized manual, scaled implementation plan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== EXPECTED OUTCOMES ========== -->
+        <section id="expected-outcomes" class="section section-divider-bg">
+            <div class="main-container">
+                <h2 class="section-title">Quantifiable Expected Pilot Outcomes</h2>
+                <p class="section-subtitle">Four-dimension data dashboard tracking measurable impact across all pilot indicators.</p>
+                <div class="outcomes-grid">
+                    <!-- Cost Dimension -->
+                    <div class="outcome-card">
+                        <span class="stat-number-lg">35%+</span>
+                        <span class="outcome-label">Cost Dimension</span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" style="width:70%;" aria-label="70% of target"></div>
+                        </div>
+                        <p class="aux-text">Reduction in annual per-senior care cost versus professional caregiver baseline</p>
+                    </div>
+                    <!-- Coverage Dimension -->
+                    <div class="outcome-card">
+                        <span class="stat-number-lg">100+</span>
+                        <span class="outcome-label">Coverage Dimension</span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" style="width:80%;" aria-label="80% of target"></div>
+                        </div>
+                        <p class="aux-text">Solitary elderly households covered per pilot community</p>
+                    </div>
+                    <!-- Experience Dimension -->
+                    <div class="outcome-card">
+                        <span class="stat-number-lg">4.5/5</span>
+                        <span class="outcome-label">Experience Dimension</span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" style="width:90%;" aria-label="90% of target"></div>
+                        </div>
+                        <p class="aux-text">Target satisfaction rating from both elderly participants and youth tenants</p>
+                    </div>
+                    <!-- Model Dimension -->
+                    <div class="outcome-card">
+                        <span class="stat-number-lg">25%+</span>
+                        <span class="outcome-label">Model Dimension</span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" style="width:60%;" aria-label="60% of target"></div>
+                        </div>
+                        <p class="aux-text">Reduction in home accident claim rate for partner insurance institutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA BANNER ========== -->
+        <section id="contact" class="cta-banner">
+            <div class="cta-banner-text">
+                <h2>Jointly Build an Innovative Pilot of Community Mutual Elderly Care</h2>
+                <p>Low-cost · Wide-coverage · Replicable Home-based Elderly Care Risk Prevention Solution</p>
+            </div>
+            <a href="#contact" class="btn btn-green-fill">Contact for Cooperation</a>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <!-- DUO Studio D-shaped logo -->
+                <svg class="footer-logo-svg" viewBox="0 0 40 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g clip-path="url(#footer-clip-left)">
+                        <path d="M4,2 L4,50 A24,24 0 0,1 4,2 Z" fill="#1A2438"/>
+                    </g>
+                    <g clip-path="url(#footer-clip-right)">
+                        <path d="M4,2 L4,50 A24,24 0 0,1 4,2 Z" fill="#A8CC87"/>
+                    </g>
+                    <circle cx="16" cy="26" r="6.5" fill="#F5F7FA"/>
+                    <defs>
+                        <clipPath id="footer-clip-left">
+                            <rect x="0" y="0" width="16" height="52"/>
+                        </clipPath>
+                        <clipPath id="footer-clip-right">
+                            <rect x="16" y="0" width="24" height="52"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <span class="footer-project-name">Care-for-Rent · Community Mutual<br>Elderly Care Risk Prevention System</span>
+            </div>
+            <div class="footer-right">
+                <p>Contact: pilot@duo-studio.com</p>
+                <p>DUO Studio · Design Unity Between Old & Young</p>
+                <p>&copy; 2026 DUO Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Mobile hamburger menu toggle
+        const hamburger = document.getElementById('navHamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            const isOpen = navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu when a nav link is clicked
+        const navLinks = navMenu.querySelectorAll('.nav-link, .nav-cta-mobile');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth scroll for logo click (already handled by href="#top")
+        // Sticky nav shadow effect on scroll (subtle border enhancement)
+        const navBar = document.querySelector('.nav-bar');
+        let lastScrollY = 0;
+
+        function updateNavBorder() {
+            const scrollY = window.scrollY;
+            if (scrollY > 10) {
+                navBar.style.borderBottomColor = '#D5DCE5';
+            } else {
+                navBar.style.borderBottomColor = '#E8ECF1';
+            }
+            lastScrollY = scrollY;
+            requestAnimationFrame(() => {});
+        }
+
+        window.addEventListener('scroll', updateNavBorder, { passive: true });
+
+        // Initialize progress bars animation on scroll
+        const progressBars = document.querySelectorAll('.progress-bar-fill');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0%';
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            bar.style.width = targetWidth;
+                        }, 150);
+                    });
+                    progressObserver.unobserve(bar);
+                }
+            });
+        }, observerOptions);
+
+        progressBars.forEach(bar => {
+            const originalWidth = bar.style.width;
+            bar.style.width = '0%';
+            bar.dataset.targetWidth = originalWidth;
+            progressObserver.observe(bar);
+        });
+
+        // On load, set progress bars to their target widths if visible
+        window.addEventListener('load', () => {
+            progressBars.forEach(bar => {
+                if (bar.dataset.targetWidth) {
+                    const rect = bar.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        setTimeout(() => {
+                            bar.style.width = bar.dataset.targetWidth;
+                        }, 300);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
